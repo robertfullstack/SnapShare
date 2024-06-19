@@ -1,4 +1,4 @@
-<h1>Plataforma Rede Social SnapShare</h1>
+  <h1>Plataforma Rede Social SnapShare</h1>
 <h6>Versão 1.0</h6>h6>
 
 <h4>Mais Informações:</h4>
@@ -38,15 +38,19 @@ Sendo gratuita por uma certa quantidade de requisição, com o seu sistema de Ar
 <h3>Comandos Aprendidos no Projeto:</h3>
 <ul>
   <li>const uploadTask = storage.ref(`images/${file.name}`).put(file);</li>
-  <p style="padding-left: 120px;">Usado para mandar uma imagem para o firebase, como referência, o que está no file.name. Usando a put(file) para inputar o arquivo no firebase.</p>
+  <p> - Usado para mandar uma imagem para o firebase, como referência, o que está no file.name. Usando a put(file) para inputar o arquivo no firebase.</p>
 
   <li>time: firebase.firestore.FieldValue.serverTimestamp()</li>
+  <p> - Usado para pegar a data e hora da publicação no firebase.</p>
   
   <li>storage.ref('images').child(file.name).getDownloadURL().then((url) => {</li>
+  <p> - Usado para pegar URL gerada para imagem que foi enviada para o firebase.</p>
   
   <li>uploadTask.on("state_changed", (snapshot) => {</li>
+  <p> - Usado para pegar o uploadTask, verificar se houve alguma mudança e colocar esse valor no parâmetro snapshot.</p>
   
   <li>auth.signOut().then((val) => {</li>
+  <p> - Usado para deslogar o usuário.</p>
 </ul>
 
 
