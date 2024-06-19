@@ -1,5 +1,5 @@
-  <h1>Plataforma Rede Social SnapShare</h1>
-<h6>Versão 1.0</h6>h6>
+<h1>Plataforma Rede Social SnapShare</h1>
+<h6>Versão 1.0</h6>
 
 <h4>Mais Informações:</h4>
 <ul>
