@@ -56,6 +56,48 @@ Sendo gratuita por uma certa quantidade de requisição, com o seu sistema de Ar
   <p> - Usado para deslogar o usuário.</p>
 </ul>
 
+<h3>Regra de Negócio Firebase:</h3>
+<code>
+  
+    rules_version = '2';
+    service cloud.firestore {
+    match /databases/{database}/documents {
+    
+    // Regras para a coleção 'posts'
+    match /posts/{postId} {
+      // Permitir leitura para todos, autenticados ou não
+      allow read: if true;
+      
+      // Permitir criação de posts apenas para usuários autenticados
+      allow create: if request.auth != null;
+      
+      // Permitir atualização e exclusão de posts apenas pelo autor do post
+      allow update, delete: if request.auth != null && resource.data.userName == request.auth.token.email;
+    }
+    
+    // Regras para a subcoleção 'comentario' dentro de 'posts'
+    match /posts/{postId}/comentario/{comentarioId} {
+      // Permitir leitura para todos, autenticados ou não
+      allow read: if true;
+      
+      // Permitir criação de comentários apenas para usuários autenticados
+      allow create: if request.auth != null;
+      
+      // Permitir atualização e exclusão de comentários apenas pelo autor do comentário
+      allow update, delete: if request.auth != null && resource.data.nameUser == request.auth.token.email;
+    }
+    
+    // Regras gerais para outros documentos
+    match /{document=**} {
+      // Permitir leitura para todos, autenticados ou não
+      allow read: if true;
+      
+      // Permitir escrita apenas para usuários autenticados
+      allow write: if request.auth != null;
+    }
+    }
+    }
+</code>
 
 <h4>Atualização:</h4>
 <ul>
